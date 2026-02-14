@@ -34,19 +34,22 @@
 
 </div>
 
+
 <script>
 function abrirCarta() {
 
     const contenedor = document.getElementById("corazones");
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 40; i++) {  // más corazones
         const heart = document.createElement("div");
         heart.className = "corazon";
         heart.innerHTML = "💖";
 
+        // posición ALEATORIA en toda la pantalla
         heart.style.left = Math.random() * window.innerWidth + "px";
         heart.style.top = Math.random() * window.innerHeight + "px";
 
+        // tamaños distintos (más bonito)
         heart.style.fontSize = (Math.random() * 20 + 15) + "px";
 
         contenedor.appendChild(heart);
@@ -58,6 +61,7 @@ function abrirCarta() {
         window.location.href = "carta.html";
     }, 700);
 }
+
 </script>
 
 </body>
