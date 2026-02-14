@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,4 +66,73 @@ function abrirCarta() {
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="corazones"></div>
+
+<div class="envelope-container">
+
+    <div class="envelope">
+
+        <!-- Parte frontal -->
+        <div class="envelope-body">
+            <div class="text-front">
+                <p>De: Tu Cachero 😉❤️</p>
+                <p>Para: Mi Vida, Mi Reina, Mi Todooo... 😘💕</p>
+            </div>
+        </div>
+
+        <!-- Triángulo superior -->
+        <div class="envelope-flap"></div>
+
+        <!-- Sello -->
+        <div class="seal" onclick="abrirCarta()">❤️</div>
+
+    </div>
+
+    <p class="hint">Toca el sello para abrir la carta</p>
+
+</div>
+
+
+<script>
+function abrirCarta() {
+
+    const contenedor = document.getElementById("corazones");
+
+    for (let i = 0; i < 40; i++) {  // más corazones
+        const heart = document.createElement("div");
+        heart.className = "corazon";
+        heart.innerHTML = "💖";
+
+        // posición ALEATORIA en toda la pantalla
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+
+        // tamaños distintos (más bonito)
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+        contenedor.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+    }
+
+    setTimeout(() => {
+        window.location.href = "carta.html";
+    }, 700);
+}
+
+</script>
+
+</body>
+>>>>>>> 948d386 (Primer commit: proyecto completo con ramo 3D usando Git LFS)
 </html>
