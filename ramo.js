@@ -43,13 +43,14 @@ window.addEventListener("DOMContentLoaded", () => {
         const center = box.getCenter(new THREE.Vector3());
         modelo.position.sub(center);
 
-        // Escala
+        // Más grande
         const size = box.getSize(new THREE.Vector3()).length();
-        const scale = 8 / size;
+        const scale = 8 / size;  // MÁS GRANDE (antes 6)
         modelo.scale.setScalar(scale);
 
         // bajar el ramo
-        modelo.position.y -= 1;
+        modelo.position.y -= 1;  // mueve hacia abajo
+
 
         ramo.add(modelo);
 
@@ -59,6 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
     function animate() {
         requestAnimationFrame(animate);
 
+        // gira solo si el usuario no toca
         if (!usuarioInteractuando) {
             ramo.rotation.y += 0.005;
         }
@@ -73,10 +75,9 @@ window.addEventListener("DOMContentLoaded", () => {
 function volver() {
     window.location.href = "index.html";
 }
-
 function actualizarContador() {
 
-    const inicio = new Date(2023, 4, 19);
+    const inicio = new Date(2023, 4, 19); // mayo = 4 (empieza desde 0)
     const ahora = new Date();
 
     let diferencia = ahora - inicio;
@@ -101,3 +102,4 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
+
