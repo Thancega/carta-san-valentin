@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const center = box.getCenter(new THREE.Vector3());
         modelo.position.sub(center);
 
-        // Más grande
+        // Escala
         const size = box.getSize(new THREE.Vector3()).length();
         const scale = 8 / size;
         modelo.scale.setScalar(scale);
@@ -101,9 +101,3 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
-
-setInterval(actualizarContador, 1000);
-actualizarContador();
-
-
->>>>>>> 948d386 (Primer commit: proyecto completo con ramo 3D usando Git LFS)
