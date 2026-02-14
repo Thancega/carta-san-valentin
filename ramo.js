@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Loader
     const loader = new THREE.GLTFLoader();
 
-    loader.load("modelo/ramo.glb", (gltf) => {
+    loader.load("https://drive.google.com/file/d/1XBC5_LYTzzJNDlu4GyPt_LVXuxQVWedi/view?usp=drive_link", (gltf) => {
 
         const modelo = gltf.scene;
 
@@ -102,4 +102,5 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
+
 
