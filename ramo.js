@@ -31,31 +31,32 @@ window.addEventListener("DOMContentLoaded", () => {
     const ramo = new THREE.Group();
     scene.add(ramo);
 
-    // Loader
-    const loader = new THREE.GLTFLoader();
+    // Loader con MeshoptDecoder
+const loader = new THREE.GLTFLoader();
+loader.setMeshoptDecoder(MeshoptDecoder); // 🔹 importante: antes de load()
 
-    loader.load("https://drive.google.com/uc?export=download&id=1XBC5_LYTzzJNDlu4GyPt_LVXuxQVWedi", (gltf) => {
+loader.load("modelo/roma.glb", (gltf) => {
 
-        const modelo = gltf.scene;
+    const modelo = gltf.scene;
 
-        // Centrar
-        const box = new THREE.Box3().setFromObject(modelo);
-        const center = box.getCenter(new THREE.Vector3());
-        modelo.position.sub(center);
+    // Centrar
+    const box = new THREE.Box3().setFromObject(modelo);
+    const center = box.getCenter(new THREE.Vector3());
+    modelo.position.sub(center);
 
-        // Más grande
-        const size = box.getSize(new THREE.Vector3()).length();
-        const scale = 8 / size;  // MÁS GRANDE (antes 6)
-        modelo.scale.setScalar(scale);
+    // Más grande
+    const size = box.getSize(new THREE.Vector3()).length();
+    const scale = 8 / size;  // MÁS GRANDE (antes 6)
+    modelo.scale.setScalar(scale);
 
-        // bajar el ramo
-        modelo.position.y -= 1;  // mueve hacia abajo
+    // bajar el ramo
+    modelo.position.y -= 1;  // mueve hacia abajo
 
+    ramo.add(modelo);
 
-        ramo.add(modelo);
+    console.log("Modelo listo ✅");
+});
 
-        console.log("Modelo listo ✅");
-    });
 
     function animate() {
         requestAnimationFrame(animate);
@@ -102,7 +103,3 @@ function actualizarContador() {
 
 setInterval(actualizarContador, 1000);
 actualizarContador();
-
-
-
-
